@@ -1,0 +1,9 @@
+package nl.hu.v1wac.firstapp.persistence;
+
+import java.sql.Connection;
+
+public class PostgresBaseDao {
+	public Connection getConnection() {
+		
+	}
+}

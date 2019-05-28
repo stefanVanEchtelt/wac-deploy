@@ -1,0 +1,46 @@
+package nl.hu.v1wac.firstapp.webservices;
+
+import io.jsonwebtoken.JwtException;
+import io.jsonwebtoken.impl.crypto.MacProvider;
+import nl.hu.v1wac.firstapp.persistence.UserDao;
+import nl.hu.v1wac.firstapp.persistence.UserPostgresDaolmpl;
+
+import java.io.IOException;
+import java.security.Key;
+import javax.ws.rs.Path;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonObjectBuilder;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
+
+@Path("/authentication")
+public class AuthenticationResource {
+	final static public Key key = MacProvider.generateKey();
+
+	@POST
+	public Response authenticateUser(@FormParam("username") String name, @FormParam("password") String pass) {
+		try {
+			UserDao dao = new UserPostgresDaolmpl();
+			String role = dao.findRoleForUser(name, pass);
+			
+			if (role == null) { throw new IllegalArgumentException("No user found!"); }
+			
+			String token = createToken();
+			
+			return Response.ok().build();
+		} catch (JwtException | IllegalArgumentException e) {
+			return Response.status(Response.Status.UNAUTHORIZED).build();
+		}
+	}
+}

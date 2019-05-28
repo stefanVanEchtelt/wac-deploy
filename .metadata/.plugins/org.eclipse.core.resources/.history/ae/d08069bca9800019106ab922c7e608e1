@@ -1,0 +1,19 @@
+let saveButton = document.querySelector('#login_button'); 
+saveButton.addEventListener('click', (event) => {
+	var formData = new FormData(document.querySelector("#save_form"));
+	var encData = new URLSearchParams(formData.entries());
+	
+	console.log(naam);
+	console.log(wachtwoord);
+	
+	fetch('/firstapp/restservices/countries', {method: 'POST', body: encData})
+	.then((response) => {
+		if (response.status == 402) { 
+			er.innerHTML = "er is iets fout gegaan.";
+			console.log("error2");
+			console.log(er);
+		}
+		initPage();
+	});
+	console.log("xxx");
+}, false);

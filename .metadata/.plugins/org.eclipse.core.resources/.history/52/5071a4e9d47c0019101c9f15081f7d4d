@@ -1,0 +1,42 @@
+function deleteLand(code) {
+	console.log(code);
+	
+	fetch('http://localhost:8080/firstapp/restservices/countries/' + code, {method: 'DELETE'})
+		.then((response) => {
+			initPage();
+		});
+}
+
+function initPage() {
+	fetch('http://localhost:8080/firstapp/restservices/countries/')
+		.then(response => response.json())
+		.then((myJson) => {
+			let table = document.querySelector('tbody');
+			table.innerHTML = "";
+			
+			var i = 0;
+			for (i; i < myJson.length; i++) {
+				table.innerHTML = table.innerHTML + "<tr>" +
+					"<td>" + myJson[i].code + "</td>" +
+					"<td>" + myJson[i].name + "</td>" +
+					"<td>" + myJson[i].capital + "</td>" +
+					"<td>" + myJson[i].surface + "</td>" +
+					"<td>" + myJson[i].population + "</td>" +
+					"<td>" + "HREF" + "</td>" +
+					"<td>" + "<input type='button' class='delete' data-code='" + myJson[i].code + "' value='DEL'/></td>" +
+				"</tr>";
+			}
+			
+			var deleteButtons = document.getElementsByClassName('delete');
+			
+			for (i = 0; i < deleteButtons.length; i++) {
+				deleteButtons[i].addEventListener('click', (event) => {
+					let deletebutton = event.target.closest(".delete");
+					deleteLand(deletebutton.getAttribute("data-code"));
+				}, false);
+			}
+			console.log(myJson);
+		});
+}
+
+initPage();

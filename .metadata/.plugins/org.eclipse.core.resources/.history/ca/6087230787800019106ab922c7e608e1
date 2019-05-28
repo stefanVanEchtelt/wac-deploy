@@ -1,0 +1,7 @@
+package nl.hu.v1wac.firstapp.persistence;
+
+public class UserPostgresDaolmpl extends PostgresBaseDao implements UserDao {
+	public String findRoleForUser(String name, String pass) {
+		return ""
+	}
+}

@@ -1,0 +1,11 @@
+package nl.hu.v1wac.firstapp.webservices;
+
+import io.jsonwebtoken.impl.crypto.MacProvider;
+import java.io.IOException;
+import java.security.Key;
+import javax.ws.rs.Path;
+
+@Path("/authentication")
+public class AuthenticationResource {
+	final static public Key key = MacProvider.generateKey();
+}

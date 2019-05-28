@@ -1,0 +1,7 @@
+let saveButton = document.querySelector('#login_button'); 
+saveButton.addEventListener('click', (event) => {
+	let naam = document.querySelectior("#name");
+	let wachtwoord = document.querySelectior();
+	fetch() 
+	console.log("xxx");
+}, false);

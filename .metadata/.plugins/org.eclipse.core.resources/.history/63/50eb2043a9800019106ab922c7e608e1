@@ -1,0 +1,11 @@
+let saveButton = document.querySelector('#login_button'); 
+saveButton.addEventListener('click', (event) => {
+	let naam = document.querySelectior("#name").value;
+	let wachtwoord = document.querySelectior("password").value;
+	console.log(naam);
+	console.log(wachtwoord);
+//	fetch() {
+//		
+//	}
+	console.log("xxx");
+}, false);

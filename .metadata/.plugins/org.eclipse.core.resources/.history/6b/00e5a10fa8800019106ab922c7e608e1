@@ -1,0 +1,4 @@
+let saveButton = document.querySelector('#login_button'); 
+saveButton.addEventListener('click', (event) => {
+	login();
+}, false);

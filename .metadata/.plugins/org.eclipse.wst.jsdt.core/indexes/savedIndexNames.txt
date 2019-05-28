@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\Stefa\OneDrive\Documents\MEGAsync\HU 2018 periode 4\WAC\opdrachten\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1940202951.index
+3872797517.index
+1823224545.index
+667270878.index
+1123952405.index
+1345302021.index
+1000020339.index

@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+	</head>
+
+	<body>
+		<input type='text' name='name' />
+		<input type='text' name='name' />
+		<input type='text' name='name' />
+		
+		<h3>Landen</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>code</th>
+					<th>naam</th>
+					<th>capital</th>
+					<th>oppervlakte</th>
+					<th>inwoners</th>
+					<th>bewerken</th>
+					<th>verwijderen</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		
+		<script src="js/landen.js"></script>
+	</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.json.Json"/>
+<fullyQualifiedTypeName name="javax.json.JsonArrayBuilder"/>
+<fullyQualifiedTypeName name="javax.json.JsonObjectBuilder"/>
+<fullyQualifiedTypeName name="javax.json.JsonArray"/>
+<fullyQualifiedTypeName name="javax.ws.rs.GET"/>
+<fullyQualifiedTypeName name="javax.ws.rs.Produces"/>
+<fullyQualifiedTypeName name="nl.hu.v1wac.firstapp.model.WorldService"/>
+<fullyQualifiedTypeName name="nl.hu.v1wac.firstapp.model.Country"/>
+<fullyQualifiedTypeName name="nl.hu.v1wac.firstapp.persistence.CountryPostgresDaolmpl"/>
+</qualifiedTypeNameHistroy>

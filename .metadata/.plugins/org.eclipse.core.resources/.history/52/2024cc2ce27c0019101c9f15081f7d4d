@@ -1,0 +1,67 @@
+function deleteLand(code) {
+	console.log(code);
+	
+	fetch('http://localhost:8080/firstapp/restservices/countries/' + code, {method: 'DELETE'})
+		.then((response) => {
+			initPage();
+			console.log("deleted");
+		});
+}
+
+function updateLand(clickedButton) {
+	var code = clickedButton.getAttribute("data-code");
+	console.log(code);
+	console.log(document.querySelector("#PUTCountry_" + code));
+//	PUTCountry_BW
+	var form = new FormData(document.querySelector("#PUTCountry_" + code));
+	console.log(form);
+	console.log(form.entries());
+	console.log(new URLSearchParams(form.entries()));
+}
+
+function initPage() {
+	fetch('http://localhost:8080/firstapp/restservices/countries/')
+		.then(response => response.json())
+		.then((myJson) => {
+			let table = document.querySelector('tbody');
+			table.innerHTML = "";
+			
+			var i = 0;
+			for (i; i < myJson.length; i++) {
+				table.append("<form id='PUTCountry_" + myJson[i].code + "'></form>"); 
+				
+//				table.innerHTML = table.innerHTML + "<tr>" + 
+//					"<form id='PUTCountry_" + myJson[i].code + "'>" +
+//					"<td>" + myJson[i].code + "</td>" +
+//					"<td>" + "<input type='text' name='name' value='" + myJson[i].name + "' />" + "</td>" +
+////					"<td>" + myJson[i].name + "</td>" +
+//					"<td>" + myJson[i].capital + "</td>" +
+//					"<td>" + myJson[i].surface + "</td>" +
+//					"<td>" + myJson[i].population + "</td>" +
+//					"<td>" + "<input type='button' class='update' data-code='" + myJson[i].code + "' value='UPD'/>" + "</td>" +
+//					"<td>" + "<input type='button' class='delete' data-code='" + myJson[i].code + "' value='DEL'/></td>" +
+//					"</form>" +
+//				"</tr>";
+			}
+			
+//			<form id='PUTCountry_" + myJson[i].code + "'>
+			var deleteButtons = document.getElementsByClassName('delete');
+			for (i = 0; i < deleteButtons.length; i++) {
+				deleteButtons[i].addEventListener('click', (event) => {
+					let deletebutton = event.target.closest(".delete");
+					deleteLand(deletebutton.getAttribute("data-code"));
+				}, false);
+			}
+			
+			var updateBunttons = document.getElementsByClassName('update');
+			for (i = 0; i < updateBunttons.length; i++) {
+				updateBunttons[i].addEventListener('click', (event) => {
+					let updateBuntton = event.target.closest(".update");
+					updateLand(updateBuntton);
+				}, false);
+			}
+			console.log(myJson);
+		});
+}
+
+initPage();
